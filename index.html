@@ -10,7 +10,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #ffffff; --ink: #000000; --mid: #767676; --faint: #b0b0b0; --rule: #000000; }
-    html { font-size: 14px; }
+    html { font-size: 16px; }
     body { background: var(--bg); color: var(--ink); font-family: 'IBM Plex Sans', sans-serif; min-height: 100vh; }
 
     /* ── HEADER ROWS ── */
@@ -24,7 +24,7 @@
     }
     .site-logo {
       font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-size: 1rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 1.5rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--ink); text-decoration: none;
     }
     .hd-nav {
@@ -32,7 +32,7 @@
     }
     .hd-nav a {
       font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 1.17rem; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--ink); text-decoration: none;
     }
     .hd-nav a:hover { color: var(--mid); }
@@ -40,10 +40,10 @@
     /* Row 2: Books/Authors 한 줄 */
     .hd-row2 {
       display: flex; align-items: center; justify-content: center;
-      height: 32px; padding: 0 1rem; gap: 1.5rem;
+      height: 44px; padding: 0 1.5rem; gap: 2rem;
       border-bottom: 1px solid var(--rule);
       font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 1.08rem; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--mid);
     }
     .hd-stat { display: flex; align-items: center; gap: 0.35rem; }
@@ -52,24 +52,24 @@
     /* Row 3: Search + Shuffle */
     .hd-row3 {
       display: grid; grid-template-columns: 4fr 1fr;
-      height: 40px;
+      height: 52px;
       border-bottom: 1px solid var(--rule);
-      margin-bottom: -1px; /* grid border-top과 겹침 방지 */
+      margin-bottom: -1px;
       position: relative; z-index: 1;
     }
     .search-wrap {
       display: flex; align-items: center; padding: 0 1rem; gap: 0.6rem;
       border-right: 1px solid var(--rule);
     }
-    .search-icon { width: 13px; height: 13px; flex-shrink: 0; color: var(--faint); }
-    #search { background: none; border: none; outline: none; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); width: 100%; }
+    .search-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--faint); }
+    #search { background: none; border: none; outline: none; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 1.08rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); width: 100%; }
     #search::placeholder { color: var(--faint); }
     .shuffle-wrap {
       display: flex; align-items: center; justify-content: center;
     }
     .shuffle-btn {
       background: none; border: none; color: var(--mid);
-      font-size: 1.43rem; cursor: pointer; transition: color 0.1s;
+      font-size: 2rem; cursor: pointer; transition: color 0.1s;
       display: flex; align-items: center; justify-content: center;
       width: 100%; height: 100%;
     }
@@ -103,12 +103,12 @@
       padding: 1rem; text-align: center; opacity: 0; transition: opacity 0.2s ease;
     }
     .thumb-wrap:hover .thumb-overlay { opacity: 1; }
-    .ov-title-kr { font-size: 0.78rem; font-weight: 400; color: #fff; line-height: 1.4; }
-    .ov-title-en { font-size: 0.7rem; color: rgba(255,255,255,0.65); margin-top: 0.25rem; line-height: 1.3; }
-    .ov-author { font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 0.5rem; }
+    .ov-title-kr { font-size: 1.17rem; font-weight: 400; color: #fff; line-height: 1.4; }
+    .ov-title-en { font-size: 1.05rem; color: rgba(255,255,255,0.65); margin-top: 0.35rem; line-height: 1.3; }
+    .ov-author { font-size: 1.02rem; color: rgba(255,255,255,0.5); margin-top: 0.6rem; }
     .card-info { padding: 0.65rem 0.8rem 0.75rem; border-top: 1px solid var(--rule); }
-    .info-title { font-size: 0.78rem; font-weight: 400; line-height: 1.35; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .info-title-en { font-size: 0.7rem; color: var(--mid); margin-top: 0.15rem; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .info-title { font-size: 1.05rem; font-weight: 400; line-height: 1.35; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .info-title-en { font-size: 0.9rem; color: var(--mid); margin-top: 0.2rem; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .state-msg { grid-column: 1/-1; text-align: center; padding: 8rem 2rem; font-size: 0.72rem; color: var(--faint); letter-spacing: 0.1em; text-transform: uppercase; }
 
     /* ── MODAL ── */
@@ -139,13 +139,13 @@
     .contact-modal-backdrop.open { opacity: 1; pointer-events: all; }
     .contact-modal { background: var(--bg); border: 1px solid var(--rule); width: 280px; transform: translateY(-4px); transition: transform 0.15s; }
     .contact-modal-backdrop.open .contact-modal { transform: translateY(0); }
-    .contact-modal-row { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--ink); font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.1s; }
+    .contact-modal-row { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--ink); font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 1.17rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.1s; }
     .contact-modal-row:last-child { border-bottom: none; }
     .contact-modal-row:hover { background: var(--ink); color: var(--bg); }
 
     /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--rule); padding: 2rem 1rem; display: grid; grid-template-columns: repeat(5, 1fr); font-size: 0.72rem; line-height: 1.9; }
-    .footer-logo { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+    footer { border-top: 1px solid var(--rule); padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(5, 1fr); font-size: 1rem; line-height: 1.9; }
+    .footer-logo { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 1.5rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
     .footer-center { grid-column: 2 / 5; text-align: center; color: var(--mid); }
     .footer-right { text-align: right; color: var(--mid); }
     .footer-right a { color: var(--mid); text-decoration: none; display: block; }
@@ -154,7 +154,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       .hd-nav { gap: 1rem; }
-      .hd-nav a { font-size: 0.7rem; }
+      .hd-nav a { font-size: 1rem; }
       .hd-row2, .hd-row3, .hd-row4 { grid-template-columns: repeat(3, 1fr); }
       .search-wrap { grid-column: 1 / 3; }
       .shuffle-wrap { grid-column: 3; }
@@ -217,7 +217,7 @@
   </div>
   <div class="footer-right">
     <a href="https://instagram.com/aabb.os.library" target="_blank">&#64;aabb.os.library</a>
-    <a href="mailto:aabb&#64;aabb.kr">aabb&#64;aabb.kr</a>
+    <a href="/cdn-cgi/l/email-protection#b5d4d4d7d7939683818ed4d4d7d79bdec7">aabb&#64;aabb.kr</a>
   </div>
 </footer>
 
@@ -229,7 +229,7 @@
   <button class="modal-close" id="modal-close">ESC</button>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   var SID = '1hNgNNsGC0hVxicmm_B5QUksjlicXtD8eAFIl3VIAScg';
   var SHEET_URL = 'https://docs.google.com/spreadsheets/d/'+SID+'/export?format=csv&gid=996701484';
