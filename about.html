@@ -15,7 +15,7 @@
 
     /* ── HEADER (index.html과 동일) ── */
     header { position: sticky; top: 0; background: var(--bg); z-index: 100; }
-    .hd-row1 { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 1rem; border-bottom: 1px solid var(--rule); }
+    .hd-row1 { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 1rem; }
     .site-logo { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 1.5rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
     .hd-nav { display: flex; align-items: center; gap: 1.6rem; }
     .hd-nav a { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 1.17rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
@@ -36,6 +36,7 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       flex: 1;
+      border-top: 1px solid var(--rule);
     }
 
     /* 좌측 3칸: OS 소개 + 연락처 */
@@ -55,12 +56,12 @@
     .section-bar {
       height: 44px; padding: 0 1.5rem;
       display: flex; align-items: center;
-      border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
       font-family: 'IBM Plex Sans Condensed', sans-serif;
       font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--mid);
     }
+    /* section-bar contact margin fix */
 
     /* 본문 영역 */
     .section-body { padding: 2rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
