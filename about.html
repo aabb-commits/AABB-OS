@@ -10,15 +10,15 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #ffffff; --ink: #000000; --mid: #767676; --faint: #b0b0b0; --rule: #000000; }
-    html { font-size: 14px; }
+    html { font-size: 16px; }
     body { background: var(--bg); color: var(--ink); font-family: 'IBM Plex Sans', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
 
     /* ── HEADER (index.html과 동일) ── */
     header { position: sticky; top: 0; background: var(--bg); z-index: 100; }
-    .hd-row1 { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 1rem; border-bottom: 1px solid var(--rule); }
-    .site-logo { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .hd-row1 { display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 1.5rem; border-bottom: 1px solid var(--rule); }
+    .site-logo { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 1.5rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
     .hd-nav { display: flex; align-items: center; gap: 1.6rem; }
-    .hd-nav a { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .hd-nav a { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 1.17rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
     .hd-nav a:hover, .hd-nav a.active { color: var(--mid); }
 
     /* ── ABOUT: 페이지 타이틀 바 ── */
@@ -27,7 +27,7 @@
       height: 32px; padding: 0 1rem;
       border-bottom: 1px solid var(--rule);
       font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--mid);
     }
 
@@ -54,28 +54,28 @@
 
     /* 섹션 헤더 바 */
     .section-bar {
-      height: 32px; padding: 0 1rem;
+      height: 36px; padding: 0 1.5rem;
       display: flex; align-items: center;
       border-bottom: 1px solid var(--rule);
       font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--mid);
     }
 
     /* 본문 영역 */
     .section-body { padding: 2rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
 
-    .desc-kr { font-size: 0.9rem; line-height: 1.9; color: var(--ink); }
-    .desc-en { font-size: 0.9rem; line-height: 1.9; color: var(--mid); margin-top: 1.2rem; }
+    .desc-kr { font-size: 1.05rem; line-height: 1.9; color: var(--ink); }
+    .desc-en { font-size: 1.05rem; line-height: 1.9; color: var(--mid); margin-top: 1.2rem; }
 
     /* 연락처 */
     .contact-block { margin-top: 3rem; }
     .contact-row {
-      display: grid; grid-template-columns: 40px 1fr;
+      display: grid; grid-template-columns: 50px 1fr;
       align-items: baseline;
-      padding: 0.55rem 0;
+      padding: 0.7rem 0;
       border-bottom: 1px solid #e8e8e8;
-      font-size: 0.82rem;
+      font-size: 1.05rem;
     }
     .contact-row:first-of-type { border-top: 1px solid #e8e8e8; }
     .contact-key { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 0.66rem; color: var(--faint); letter-spacing: 0.1em; text-transform: uppercase; }
@@ -85,13 +85,13 @@
     .contact-val.sub { color: var(--mid); font-size: 0.76rem; }
 
     /* Submit */
-    .submit-desc { font-size: 0.88rem; line-height: 1.9; color: var(--mid); }
+    .submit-desc { font-size: 1.05rem; line-height: 1.9; color: var(--mid); }
     .submit-btn {
       display: inline-block; margin-top: 2.5rem;
       padding: 0.75rem 1.6rem;
       background: var(--ink); color: var(--bg);
       font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 1.1rem; letter-spacing: 0.14em; text-transform: uppercase;
       text-decoration: none; border: 1px solid var(--ink);
       transition: background 0.1s, color 0.1s; align-self: flex-start;
     }
@@ -107,7 +107,7 @@
     .contact-modal-row:hover { background: var(--ink); color: var(--bg); }
 
     /* FOOTER */
-    footer { border-top: 1px solid var(--rule); padding: 2rem 1rem; display: grid; grid-template-columns: repeat(5, 1fr); font-size: 0.72rem; line-height: 1.9; margin-top: auto; }
+    footer { border-top: 1px solid var(--rule); padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(5, 1fr); font-size: 1rem; line-height: 1.9; margin-top: auto; }
     .footer-logo { font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
     .footer-center { grid-column: 2 / 5; text-align: center; color: var(--mid); }
     .footer-right { text-align: right; color: var(--mid); }
@@ -146,7 +146,7 @@
   <div class="contact-modal">
     <a class="contact-modal-row" href="https://maps.app.goo.gl/zo92YtDpSaYs7Nhz7" target="_blank">Google Maps &#8599;</a>
     <a class="contact-modal-row" href="https://naver.me/GoDhhbsS" target="_blank">Naver Map &#8599;</a>
-    <a class="contact-modal-row" href="mailto:aabb&#64;aabb.kr">aabb&#64;aabb.kr &#8599;</a>
+    <a class="contact-modal-row" href="/cdn-cgi/l/email-protection#3d5c5c5f5f1b1e0b09065c5c5f5f13564f">aabb&#64;aabb.kr &#8599;</a>
   </div>
 </div>
 
@@ -158,11 +158,11 @@
   </div>
   <div class="footer-right">
     <a href="https://instagram.com/aabb.os.library" target="_blank">&#64;aabb.os.library</a>
-    <a href="mailto:aabb&#64;aabb.kr">aabb&#64;aabb.kr</a>
+    <a href="/cdn-cgi/l/email-protection#d5b4b4b7b7f3f6e3e1eeb4b4b7b7fbbea7">aabb&#64;aabb.kr</a>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   var SID = '1hNgNNsGC0hVxicmm_B5QUksjlicXtD8eAFIl3VIAScg';
   var GID = '78065457';
@@ -208,7 +208,7 @@
 
     document.getElementById('about-wrap').innerHTML =
       '<div class="about-left">'
-        +'<div class="section-bar">OS</div>'
+        +'<div class="section-bar">Introduction</div>'
         +'<div class="section-body">'
           +(kr ? '<p class="desc-kr">'+esc(kr)+'</p>' : '')
           +(en ? '<p class="desc-en">'+esc(en)+'</p>' : '')
@@ -216,7 +216,7 @@
         +'</div>'
       +'</div>'
       +'<div class="about-right">'
-        +'<div class="section-bar">OS Archive</div>'
+        +'<div class="section-bar">Archive</div>'
         +'<div class="section-body">'
           +(sKr ? '<p class="submit-desc">'+esc(sKr)+'</p>' : '')
           +(sEn ? '<p class="submit-desc" style="margin-top:1rem;color:var(--faint)">'+esc(sEn)+'</p>' : '')
@@ -245,7 +245,8 @@
   var cLink = document.getElementById('contact-link');
   var cModal = document.getElementById('contact-modal');
   cLink.addEventListener('click', function(e){ e.preventDefault(); cModal.classList.add('open'); });
-  cModal.addEventListener('click', function(e){ if(e.target===cModal) cModal.classList.remove('open'); });
+  cModal.addEventListener('click', function(e){ if(e.target===cModal) cModal.classList.remove('open');
+  });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') cModal.classList.remove('open'); });
 })();
 </script>
