@@ -109,9 +109,10 @@
     /* ── GRID ── */
     .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
-    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 1200px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 640px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
 
     .card {
@@ -120,8 +121,9 @@
       cursor: pointer;
       display: block; min-width: 0;
     }
-    .card:nth-child(4n+1) { border-left: 1px solid var(--rule); }
-    @media (max-width: 1024px) { .card:nth-child(4n+1) { border-left: none; } .card:nth-child(3n+1) { border-left: 1px solid var(--rule); } }
+    .card:nth-child(5n+1) { border-left: 1px solid var(--rule); }
+    @media (max-width: 1200px) { .card:nth-child(5n+1) { border-left: none; } .card:nth-child(4n+1) { border-left: 1px solid var(--rule); } }
+    @media (max-width: 900px)  { .card:nth-child(4n+1) { border-left: none; } .card:nth-child(3n+1) { border-left: 1px solid var(--rule); } }
     @media (max-width: 640px)  { .card:nth-child(3n+1) { border-left: none; } .card:nth-child(2n+1) { border-left: 1px solid var(--rule); } }
 
     .thumb-wrap {
@@ -150,19 +152,15 @@
       border-top: 1px solid var(--rule);
     }
     .info-title {
-      font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-size: 0.8rem; font-weight: 400;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      line-height: 1.3; color: var(--ink);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.78rem; font-weight: 400;
+      line-height: 1.35; color: var(--ink);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
-    .info-author {
-      font-size: 0.72rem; color: var(--mid);
-      margin-top: 0.2rem;
+    .info-title-en {
+      font-size: 0.7rem; color: var(--mid);
+      margin-top: 0.15rem; line-height: 1.3;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .info-year {
-      font-size: 0.68rem; color: var(--faint); margin-top: 0.15rem;
     }
 
     /* ── MODAL ── */
@@ -178,36 +176,40 @@
     .modal {
       background: var(--bg);
       width: 100%; max-width: 900px;
-      max-height: calc(100vh - 44px); overflow-y: auto;
-      display: grid; grid-template-columns: 420px 1fr;
+      max-height: 85vh; overflow-y: auto;
+      display: grid; grid-template-columns: 380px 1fr;
       border: 1px solid var(--rule);
-      border-top: none;
-      transform: translateY(-4px); transition: transform 0.2s;
+      transform: translateY(8px); transition: transform 0.2s;
     }
     .modal-backdrop.open .modal { transform: translateY(0); }
+    .modal-body { overflow-y: auto; }
     .modal-cover {
       background: #f5f5f5;
       aspect-ratio: 3/4; position: relative; overflow: hidden;
       border-right: 1px solid var(--rule);
     }
     .modal-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-    .modal-body { padding: 2rem; display: flex; flex-direction: column; }
+    .modal-body {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-left: none;
+    }
+    .modal-col { padding: 1.8rem; display: flex; flex-direction: column; }
+    .modal-col-en { border-left: 1px solid var(--rule); }
     .modal-id {
       font-size: 0.66rem; color: var(--faint);
       letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.8rem;
     }
     .modal-title {
-      font-family: 'IBM Plex Sans Condensed', sans-serif;
-      font-size: 1.1rem; font-weight: 400;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      line-height: 1.3; margin-bottom: 0.2rem;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1rem; font-weight: 400;
+      line-height: 1.4; margin-bottom: 0.2rem;
     }
-    .modal-title-sub { font-size: 0.8rem; color: var(--mid); margin-bottom: 1.5rem; }
+    .modal-title-sub { font-size: 0.82rem; color: var(--mid); margin-bottom: 1.5rem; }
     .modal-meta {
-      display: grid; grid-template-columns: 80px 1fr;
+      display: grid; grid-template-columns: 70px 1fr;
       gap: 0.4rem 0.6rem; font-size: 0.72rem; margin-bottom: 1.5rem;
     }
-    .meta-label { color: var(--faint); letter-spacing: 0.06em; text-transform: uppercase; }
+    .meta-label { color: var(--faint); letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.66rem; }
     .meta-value { color: var(--ink); }
     .modal-desc {
       font-size: 0.78rem; line-height: 1.85; color: var(--mid);
@@ -224,7 +226,7 @@
     }
     .view-detail-btn:hover { background: var(--bg); color: var(--ink); }
     .modal-close {
-      position: fixed; top: 0; right: 0;
+      position: absolute; top: 0; right: 0;
       width: 44px; height: 44px;
       background: var(--bg); border: none; border-left: 1px solid var(--rule);
       font-family: 'IBM Plex Sans', sans-serif;
@@ -332,7 +334,7 @@
   <div class="contact-modal">
     <a class="contact-modal-row" href="https://maps.app.goo.gl/zo92YtDpSaYs7Nhz7" target="_blank">Google Maps <span class="contact-modal-arrow">&#8599;</span></a>
     <a class="contact-modal-row" href="https://naver.me/GoDhhbsS" target="_blank">Naver Map <span class="contact-modal-arrow">&#8599;</span></a>
-    <a class="contact-modal-row" href="mailto:aabb&#64;aabb.kr">aabb&#64;aabb.kr <span class="contact-modal-arrow">&#8599;</span></a>
+    <a class="contact-modal-row" href="/cdn-cgi/l/email-protection#7514141717535643414e141417175b1e07">aabb&#64;aabb.kr <span class="contact-modal-arrow">&#8599;</span></a>
   </div>
 </div>
 
@@ -350,19 +352,12 @@
 <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true">
   <div class="modal">
     <div class="modal-cover" id="modal-cover"></div>
-    <div class="modal-body">
-      <div class="modal-id" id="modal-id"></div>
-      <div class="modal-title" id="modal-title"></div>
-      <div class="modal-title-sub" id="modal-title-sub"></div>
-      <div class="modal-meta" id="modal-meta"></div>
-      <div class="modal-desc" id="modal-desc"></div>
-      <a class="view-detail-btn" id="modal-detail-btn" href="#" target="_blank">View Detail &#8599;</a>
-    </div>
+    <div class="modal-body" id="modal-body"></div>
   </div>
   <button class="modal-close" id="modal-close">ESC</button>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   var SID = '1hNgNNsGC0hVxicmm_B5QUksjlicXtD8eAFIl3VIAScg';
   var SHEET_URL = 'https://docs.google.com/spreadsheets/d/'+SID+'/export?format=csv&gid=996701484';
@@ -441,14 +436,26 @@
     var main=(b.titleKo&&b.titleKo!=='-')?b.titleKo:b.titleEn;
     var sub=(b.titleKo&&b.titleKo!=='-')?b.titleEn:'';
     var src=thumbUrl(b.cover);
-    document.getElementById('modal-id').textContent=b.id;
-    document.getElementById('modal-title').textContent=main;
-    document.getElementById('modal-title-sub').textContent=sub;
-    document.getElementById('modal-desc').textContent=b.desc;
     document.getElementById('modal-cover').innerHTML=src?'<img src="'+src+'" alt="'+esc(main)+'">':'';
-    document.getElementById('modal-detail-btn').href='book.html?id='+encodeURIComponent(b.id);
-    var rows=[['Author',b.authorKo||b.authorEn],['Publisher',b.pubKo||b.pubEn],['Year',b.year],['Pages',b.pages?b.pages+'p':''],['Size',b.size],['Print',b.print],['Binding',b.binding],['ISBN',b.isbn&&b.isbn!=='-'?b.isbn:'']].filter(function(r){return r[1];});
-    document.getElementById('modal-meta').innerHTML=rows.map(function(r){return '<span class="meta-label">'+esc(r[0])+'</span><span class="meta-value">'+esc(r[1])+'</span>';}).join('');
+    var rowsKr=[['저자',b.authorKo||b.authorEn],['출판사',b.pubKo||b.pubEn],['연도',b.year],['쪽수',b.pages?b.pages+'p':''],['판형',b.size],['인쇄',b.print],['제본',b.binding],['ISBN',b.isbn&&b.isbn!=='-'?b.isbn:'']].filter(function(r){return r[1];});
+    var rowsEn=[['Author',b.authorEn||b.authorKo],['Publisher',b.pubEn||b.pubKo],['Year',b.year],['Pages',b.pages?b.pages+'p':''],['Size',b.size],['Print',b.print],['Binding',b.binding],['ISBN',b.isbn&&b.isbn!=='-'?b.isbn:'']].filter(function(r){return r[1];});
+    document.getElementById('modal-body').innerHTML=
+      '<div class="modal-col">'
+        +'<div class="modal-id">'+esc(b.id)+'</div>'
+        +'<div class="modal-title">'+esc((b.titleKo&&b.titleKo!=='-')?b.titleKo:b.titleEn)+'</div>'
+        +(b.titleEn&&b.titleKo&&b.titleKo!=='-'?'<div class="modal-title-sub">'+esc(b.titleEn)+'</div>':'')
+        +'<div class="modal-meta">'+rowsKr.map(function(r){return '<span class="meta-label">'+esc(r[0])+'</span><span class="meta-value">'+esc(r[1])+'</span>';}).join('')+'</div>'
+        +(b.desc?'<div class="modal-desc">'+esc(b.desc)+'</div>':'')
+        +(b.descEn?'<div class="modal-desc" style="margin-top:1rem;border-top:none;padding-top:0">'+esc(b.descEn)+'</div>':'')
+        +'<a class="view-detail-btn" href="book.html?id='+encodeURIComponent(b.id)+'" target="_blank" style="margin-top:1.5rem">View Detail &#8599;</a>'
+      +'</div>'
+      +'<div class="modal-col modal-col-en">'
+        +'<div class="modal-id" style="opacity:0">'+esc(b.id)+'</div>'
+        +'<div class="modal-title">'+esc(b.titleEn||(b.titleKo&&b.titleKo!=='-'?b.titleKo:''))+'</div>'
+        +'<div class="modal-title-sub" style="color:var(--faint)">'+esc(b.authorEn||b.authorKo)+'</div>'
+        +'<div class="modal-meta">'+rowsEn.map(function(r){return '<span class="meta-label">'+esc(r[0])+'</span><span class="meta-value">'+esc(r[1])+'</span>';}).join('')+'</div>'
+        +(b.descEn?'<div class="modal-desc">'+esc(b.descEn)+'</div>':'')
+      +'</div>';
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow='hidden';
   }
@@ -484,8 +491,3 @@
       for(var i=books.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=books[i];books[i]=books[j];books[j]=tmp;}
       render();
     })
-    .catch(function(){document.getElementById('grid').innerHTML='<div class="state-msg">Unable to load</div>';});
-})();
-</script>
-</body>
-</html>
